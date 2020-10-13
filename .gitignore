@@ -1,5 +1,6 @@
 # private or unused
 .idea/
+.env
 
 # Logs
 logs
