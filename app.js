@@ -8,6 +8,7 @@ const dotenv = require('dotenv').config();
 const indexRouter = require('./routes/index');
 
 const app = express();
+const db = require('./helpers/db')();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
