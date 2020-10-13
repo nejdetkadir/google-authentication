@@ -1,3 +1,6 @@
+# private or unused
+.idea/
+
 # Logs
 logs
 *.log
