@@ -12,8 +12,10 @@ const authRouter = require('./routes/auth');
 const homeRouter = require('./routes/home');
 
 const app = express();
+// helpers
 const db = require('./helpers/db')();
-
+//middlewares
+const isAuthenticated = require('./middleware/isAuthenticated');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -41,7 +43,7 @@ app.use(passport.session());
 // routes
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/home', homeRouter);
+app.use('/home', isAuthenticated, homeRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
